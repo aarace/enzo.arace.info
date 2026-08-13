@@ -1,7 +1,7 @@
 @import url('href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800;9..40,900&amp;display=swap"');
 @font-face {
   font-family: "Rose Gard";
-  src: url("https://dnd.bakedbears.net/assets/fonts/rose_gard.otf")
+  src: url("assets/fonts/rose_gard.otf")
     format("opentype");
   font-display: swap;
 }
@@ -212,71 +212,71 @@ canvas {
 /* D&D icon language */
 
 :is([data-dnd-icon="adventure-book"], [data-panel-icon="adventure-book"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/adventure-book.svg");
+  --dnd-icon: url("assets/icons/dnd/adventure-book.svg");
 }
 
 :is([data-dnd-icon="armor"], [data-panel-icon="armor"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/armor.svg");
+  --dnd-icon: url("assets/icons/dnd/armor.svg");
 }
 
 :is([data-dnd-icon="blood"], [data-panel-icon="blood"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/blood.svg");
+  --dnd-icon: url("assets/icons/dnd/blood.svg");
 }
 
 :is([data-dnd-icon="character"], [data-panel-icon="character"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/character.svg");
+  --dnd-icon: url("assets/icons/dnd/character.svg");
 }
 
 :is([data-dnd-icon="cost"], [data-panel-icon="cost"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/cost.svg");
+  --dnd-icon: url("assets/icons/dnd/cost.svg");
 }
 
 :is([data-dnd-icon="d20"], [data-panel-icon="d20"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/d20.svg");
+  --dnd-icon: url("assets/icons/dnd/d20.svg");
 }
 
 :is([data-dnd-icon="dnd"], [data-panel-icon="dnd"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/dnd.svg");
+  --dnd-icon: url("assets/icons/dnd/dnd.svg");
 }
 
 :is([data-dnd-icon="loot"], [data-panel-icon="loot"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/loot.svg");
+  --dnd-icon: url("assets/icons/dnd/loot.svg");
 }
 
 :is([data-dnd-icon="pack"], [data-panel-icon="pack"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/pack.svg");
+  --dnd-icon: url("assets/icons/dnd/pack.svg");
 }
 
 :is([data-dnd-icon="party"], [data-panel-icon="party"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/party.svg");
+  --dnd-icon: url("assets/icons/dnd/party.svg");
 }
 
 :is([data-dnd-icon="person"], [data-panel-icon="person"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/person.svg");
+  --dnd-icon: url("assets/icons/dnd/person.svg");
 }
 
 :is([data-dnd-icon="ranger"], [data-panel-icon="ranger"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/ranger.svg");
+  --dnd-icon: url("assets/icons/dnd/ranger.svg");
 }
 
 :is([data-dnd-icon="scroll"], [data-panel-icon="scroll"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/scroll.svg");
+  --dnd-icon: url("assets/icons/dnd/scroll.svg");
 }
 
 :is([data-dnd-icon="skillcheck"], [data-panel-icon="skillcheck"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/skillcheck.svg");
+  --dnd-icon: url("assets/icons/dnd/skillcheck.svg");
 }
 
 :is([data-dnd-icon="spellbook"], [data-panel-icon="spellbook"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/spellbook.svg");
+  --dnd-icon: url("assets/icons/dnd/spellbook.svg");
 }
 
 :is([data-dnd-icon="trinket"], [data-panel-icon="trinket"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/trinket.svg");
+  --dnd-icon: url("assets/icons/dnd/trinket.svg");
 }
 
 :is([data-dnd-icon="weapon"], [data-panel-icon="weapon"]) {
-  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/weapon.svg");
+  --dnd-icon: url("assets/icons/dnd/weapon.svg");
 }
 
 /* Forest composition */
@@ -301,7 +301,7 @@ canvas {
   inset: -1rem;
   background-image:
     linear-gradient(rgba(5, 13, 8, 0.35), rgba(5, 13, 8, 0.7)),
-    url("https://dnd.bakedbears.net/assets/images/tree_background.webp");
+    url("assets/images/tree_background.webp");
   background-position: center;
   background-size: cover;
   filter: saturate(0.82) blur(0.12rem);
@@ -333,7 +333,7 @@ canvas {
 
 .forest-scene__frame {
   inset: -0.4rem;
-  background: url("https://dnd.bakedbears.net/assets/images/shrubbery_trans.webp")
+  background: url("assets/images/shrubbery_trans.webp")
     center / cover no-repeat;
   opacity: 0.42;
   filter: blur(0.04rem) saturate(0.9);
@@ -353,7 +353,7 @@ canvas {
 
 .forest-scene__vine--left {
   left: -8rem;
-  background-image: url("https://dnd.bakedbears.net/assets/images/left_vine.webp");
+  background-image: url("assets/images/left_vine.webp");
   transform: scaleX(-1) rotate(-4deg);
   transform-origin: top;
 }
@@ -361,7 +361,7 @@ canvas {
 .forest-scene__vine--right {
   right: -6rem;
   width: min(23vw, 20rem);
-  background-image: url("https://dnd.bakedbears.net/assets/images/right_vine.webp");
+  background-image: url("assets/images/right_vine.webp");
   transform: rotate(4deg);
   transform-origin: top;
 }
@@ -687,7 +687,7 @@ canvas {
   z-index: 30;
   width: 13rem;
   height: 5rem;
-  background: url("https://dnd.bakedbears.net/assets/images/top_grass.webp")
+  background: url("assets/images/top_grass.webp")
     center / 100% 100% no-repeat;
   content: "";
   filter: drop-shadow(0 0.45rem 0.45rem rgba(0, 0, 0, 0.36)) saturate(0.88);
@@ -702,7 +702,7 @@ canvas {
   z-index: 20;
   width: clamp(5rem, 9vw, 9rem);
   aspect-ratio: 1525 / 2606;
-  background: url("https://dnd.bakedbears.net/assets/images/left_vine.webp") top
+  background: url("assets/images/left_vine.webp") top
     center / contain no-repeat;
   content: "";
   filter: drop-shadow(0 0.75rem 0.8rem rgba(0, 0, 0, 0)) saturate(0.9);
