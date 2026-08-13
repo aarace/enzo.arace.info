@@ -1,33 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#142118" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#142118">
     <meta
       name="description"
-      content="A living, forest-inspired Dungeons & Dragons 5e character sheet built for the CodePen View Transitions challenge."
-    />
+      content="A living, forest-inspired Dungeons & Dragons 5e character sheet built for the CodePen View Transitions challenge.">
     <title>Core Sheet · DnD Character Sheet</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3GWP5C7QL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-S3GWP5C7QL');
-    </script>
     <!-- Select the hash view before CSS paints to prevent a flash of Core Sheet. -->
     <script>
       const requestedPage = window.location.hash.slice(1);
       document.documentElement.dataset.activePage = [
         "core",
         "details",
-        "spells"
+        "spells",
       ].includes(requestedPage)
         ? requestedPage
         : "core";
     </script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
   <body data-page="core">
@@ -49,9 +41,9 @@
           href="index.html"
           aria-label="DnD Character Sheet home"
         >
-          <span class="brand__mark" data-dnd-icon="dnd" aria-hidden="true">
-            D&amp;D
-          </span>
+          <span class="brand__mark" data-dnd-icon="dnd" aria-hidden="true"
+            >D&amp;D</span
+          >
         </a>
         <div class="header-actions">
           <span
@@ -146,8 +138,7 @@
                 class="section-heading__rune"
                 data-dnd-icon="person"
                 aria-hidden="true"
-              >
-                I
+                >I
               </span>
               <div>
                 <p class="eyebrow">Identity</p>
@@ -161,8 +152,7 @@
                   data-field="character.name"
                   type="text"
                   value="Character Name"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-class">
                 <span>Class</span>
@@ -170,8 +160,7 @@
                   data-field="character.class"
                   type="text"
                   value="Ranger"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-level">
                 <span>Level</span>
@@ -180,8 +169,7 @@
                   type="number"
                   value="5"
                   min="1"
-                  max="20"
-                />
+                  max="20">
               </label>
               <label class="form-field form-field--identity-background">
                 <span>Background</span>
@@ -189,8 +177,7 @@
                   data-field="character.background"
                   type="text"
                   value="Outlander"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-player">
                 <span>Player name</span>
@@ -198,8 +185,7 @@
                   data-field="character.player"
                   type="text"
                   value="Nullstate"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-race">
                 <span>Race</span>
@@ -207,8 +193,7 @@
                   data-field="character.race"
                   type="text"
                   value="Wood Elf"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-alignment">
                 <span>Alignment</span>
@@ -216,8 +201,7 @@
                   data-field="character.alignment"
                   type="text"
                   value="Neutral Good"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
               <label class="form-field form-field--identity-xp">
                 <span>Experience points</span>
@@ -225,8 +209,7 @@
                   data-field="character.xp"
                   type="number"
                   value="6500"
-                  min="0"
-                />
+                  min="0">
               </label>
             </div>
           </section>
@@ -245,14 +228,12 @@
                     type="number"
                     value="10"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="str"
                     for="ability-strength"
-                  >
-                    +0
+                    >+0
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">STR</span>
                 </article>
@@ -264,14 +245,12 @@
                     type="number"
                     value="18"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="dex"
                     for="ability-dexterity"
-                  >
-                    +4
+                    >+4
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">DEX</span>
                 </article>
@@ -283,14 +262,12 @@
                     type="number"
                     value="14"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="con"
                     for="ability-constitution"
-                  >
-                    +2
+                    >+2
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">CON</span>
                 </article>
@@ -302,14 +279,12 @@
                     type="number"
                     value="12"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="int"
                     for="ability-intelligence"
-                  >
-                    +1
+                    >+1
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">INT</span>
                 </article>
@@ -321,14 +296,12 @@
                     type="number"
                     value="16"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="wis"
                     for="ability-wisdom"
-                  >
-                    +3
+                    >+3
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">WIS</span>
                 </article>
@@ -340,14 +313,12 @@
                     type="number"
                     value="11"
                     min="1"
-                    max="30"
-                  />
+                    max="30">
                   <output
                     class="ability-card__modifier"
                     data-mod-for="cha"
                     for="ability-charisma"
-                  >
-                    +0
+                    >+0
                   </output>
                   <span class="ability-card__abbr" aria-hidden="true">CHA</span>
                 </article>
@@ -366,8 +337,7 @@
                     type="number"
                     value="16"
                     min="0"
-                    aria-label="Armor class"
-                  />
+                    aria-label="Armor class">
                 </label>
                 <div class="stat-tile stat-tile--initiative">
                   <span>Initiative</span>
@@ -381,8 +351,7 @@
                       type="number"
                       value="35"
                       min="0"
-                      aria-label="Speed in feet"
-                    />
+                      aria-label="Speed in feet">
                     <small>ft</small>
                   </span>
                 </label>
@@ -394,8 +363,7 @@
                     value="3"
                     min="0"
                     max="10"
-                    aria-label="Proficiency bonus"
-                  />
+                    aria-label="Proficiency bonus">
                 </label>
                 <label class="stat-tile stat-tile--inspiration">
                   <span>Inspiration</span>
@@ -405,8 +373,7 @@
                     value="0"
                     min="0"
                     step="1"
-                    aria-label="Inspiration"
-                  />
+                    aria-label="Inspiration">
                 </label>
               </section>
               <section
@@ -418,8 +385,7 @@
                     class="section-heading__rune"
                     data-dnd-icon="blood"
                     aria-hidden="true"
-                  >
-                    V
+                    >V
                   </span>
                   <h3 id="vitality-heading">Vitality</h3>
                 </div>
@@ -430,8 +396,7 @@
                       data-field="combat.hpCurrent"
                       type="number"
                       value="37"
-                      min="0"
-                    />
+                      min="0">
                   </label>
                   <label class="vitality-field">
                     <span>Maximum</span>
@@ -439,8 +404,7 @@
                       data-field="combat.hpMax"
                       type="number"
                       value="44"
-                      min="0"
-                    />
+                      min="0">
                   </label>
                   <label class="vitality-field">
                     <span>Temporary</span>
@@ -448,8 +412,7 @@
                       data-field="combat.hpTemp"
                       type="number"
                       value="0"
-                      min="0"
-                    />
+                      min="0">
                   </label>
                   <label class="vitality-field">
                     <span>Hit dice</span>
@@ -457,8 +420,7 @@
                       data-field="combat.hitDice"
                       type="text"
                       value="5d10"
-                      autocomplete="off"
-                    />
+                      autocomplete="off">
                   </label>
                 </div>
               </section>
@@ -471,7 +433,7 @@
                   <div class="panel-title-row">
                     <h3 id="saving-throws-heading">Saving throws</h3>
                     <span class="mini-legend">
-                      <i aria-hidden="true"></i>
+                      <i aria-hidden="true"></i> 
                       Proficient
                     </span>
                   </div>
@@ -480,8 +442,7 @@
                       <input
                         data-field="save.str.proficient"
                         type="checkbox"
-                        checked
-                      />
+                        checked>
                       <strong data-save-value="str">+3</strong>
                       <span>Strength</span>
                       <small>STR</small>
@@ -490,32 +451,31 @@
                       <input
                         data-field="save.dex.proficient"
                         type="checkbox"
-                        checked
-                      />
+                        checked>
                       <strong data-save-value="dex">+7</strong>
                       <span>Dexterity</span>
                       <small>DEX</small>
                     </label>
                     <label class="check-row">
-                      <input data-field="save.con.proficient" type="checkbox" />
+                      <input data-field="save.con.proficient" type="checkbox">
                       <strong data-save-value="con">+2</strong>
                       <span>Constitution</span>
                       <small>CON</small>
                     </label>
                     <label class="check-row">
-                      <input data-field="save.int.proficient" type="checkbox" />
+                      <input data-field="save.int.proficient" type="checkbox">
                       <strong data-save-value="int">+1</strong>
                       <span>Intelligence</span>
                       <small>INT</small>
                     </label>
                     <label class="check-row">
-                      <input data-field="save.wis.proficient" type="checkbox" />
+                      <input data-field="save.wis.proficient" type="checkbox">
                       <strong data-save-value="wis">+3</strong>
                       <span>Wisdom</span>
                       <small>WIS</small>
                     </label>
                     <label class="check-row">
-                      <input data-field="save.cha.proficient" type="checkbox" />
+                      <input data-field="save.cha.proficient" type="checkbox">
                       <strong data-save-value="cha">+0</strong>
                       <span>Charisma</span>
                       <small>CHA</small>
@@ -530,33 +490,40 @@
                   <h3 id="death-saves-heading">Death saves</h3>
                   <fieldset class="death-row">
                     <legend>Successes</legend>
+                    <label><input
+                        data-field="death.success.1"
+                        type="checkbox">
+                        <span>1</span>
+                        </label>
+                    <label><input
+                        data-field="death.success.2"
+                        type="checkbox">
+                        <span>2</span>
+                      </label>
                     <label>
-                      <input data-field="death.success.1" type="checkbox" />
-                      <span>1</span>
-                    </label>
-                    <label>
-                      <input data-field="death.success.2" type="checkbox" />
-                      <span>2</span>
-                    </label>
-                    <label>
-                      <input data-field="death.success.3" type="checkbox" />
-                      <span>3</span>
-                    </label>
+                      <input
+                        data-field="death.success.3"
+                        type="checkbox">
+                        <span>3</span>
+                      </label>
                   </fieldset>
                   <fieldset class="death-row death-row--failures">
                     <legend>Failures</legend>
-                    <label>
-                      <input data-field="death.failure.1" type="checkbox" />
-                      <span>1</span>
-                    </label>
-                    <label>
-                      <input data-field="death.failure.2" type="checkbox" />
-                      <span>2</span>
-                    </label>
-                    <label>
-                      <input data-field="death.failure.3" type="checkbox" />
-                      <span>3</span>
-                    </label>
+                      <label><input
+                        data-field="death.failure.1"
+                        type="checkbox">
+                        <span>1</span>
+                      </label>
+                      <label><input
+                        data-field="death.failure.2"
+                        type="checkbox">
+                        <span>2</span>
+                      </label>
+                      <label><input
+                        data-field="death.failure.3"
+                        type="checkbox">
+                        <span>3</span>
+                        </label>
                   </fieldset>
                 </section>
               </div>
@@ -568,179 +535,126 @@
                 <div class="panel-title-row">
                   <h3 id="skills-heading">Skills</h3>
                   <span class="mini-legend">
-                    <i aria-hidden="true"></i>
-                    Proficient
-                  </span>
+                    <i aria-hidden="true"></i> 
+                    Proficient</span>
                 </div>
                 <div class="skills-grid">
                   <label class="check-row">
                     <input
                       data-field="skill.acrobatics.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="acrobatics">+4</strong>
-                    <span>Acrobatics</span>
-                    <small>DEX</small>
+                      type="checkbox"><strong data-skill-value="acrobatics">+4</strong>
+                      <span>Acrobatics</span>
+                      <small>DEX</small>
                   </label>
                   <label class="check-row">
                     <input
                       data-field="skill.animalHandling.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="animalHandling">+6</strong>
-                    <span>Animal Handling</span>
-                    <small>WIS</small>
+                      checked><strong data-skill-value="animalHandling">+6</strong>
+                      <span>Animal Handling</span>
+                      <small>WIS</small>
                   </label>
                   <label class="check-row">
                     <input
                       data-field="skill.arcana.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="arcana">+1</strong>
-                    <span>Arcana</span>
-                    <small>INT</small>
+                      type="checkbox"><strong data-skill-value="arcana">+1</strong><span>Arcana</span>
+                      <small>INT</small>
                   </label>
-                  <label class="check-row">
-                    <input
+                  <label class="check-row"
+                    ><input
                       data-field="skill.athletics.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="athletics">+3</strong>
-                    <span>Athletics</span>
-                    <small>STR</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      checked><strong data-skill-value="athletics">+3</strong
+                    ><span>Athletics</span><small>STR</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.deception.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="deception">+0</strong>
-                    <span>Deception</span>
-                    <small>CHA</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="deception">+0</strong
+                    ><span>Deception</span><small>CHA</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.history.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="history">+1</strong>
-                    <span>History</span>
-                    <small>INT</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="history">+1</strong
+                    ><span>History</span><small>INT</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.insight.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="insight">+3</strong>
-                    <span>Insight</span>
-                    <small>WIS</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="insight">+3</strong
+                    ><span>Insight</span><small>WIS</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.intimidation.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="intimidation">+0</strong>
-                    <span>Intimidation</span>
-                    <small>CHA</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="intimidation">+0</strong
+                    ><span>Intimidation</span><small>CHA</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.investigation.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="investigation">+1</strong>
-                    <span>Investigation</span>
-                    <small>INT</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="investigation">+1</strong
+                    ><span>Investigation</span><small>INT</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.medicine.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="medicine">+3</strong>
-                    <span>Medicine</span>
-                    <small>WIS</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="medicine">+3</strong
+                    ><span>Medicine</span><small>WIS</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.nature.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="nature">+4</strong>
-                    <span>Nature</span>
-                    <small>INT</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      checked><strong data-skill-value="nature">+4</strong
+                    ><span>Nature</span><small>INT</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.perception.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="perception">+6</strong>
-                    <span>Perception</span>
-                    <small>WIS</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      checked><strong data-skill-value="perception">+6</strong
+                    ><span>Perception</span><small>WIS</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.performance.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="performance">+0</strong>
-                    <span>Performance</span>
-                    <small>CHA</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="performance">+0</strong
+                    ><span>Performance</span><small>CHA</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.persuasion.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="persuasion">+0</strong>
-                    <span>Persuasion</span>
-                    <small>CHA</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="persuasion">+0</strong
+                    ><span>Persuasion</span><small>CHA</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.religion.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="religion">+1</strong>
-                    <span>Religion</span>
-                    <small>INT</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="religion">+1</strong
+                    ><span>Religion</span><small>INT</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.sleightOfHand.proficient"
-                      type="checkbox"
-                    />
-                    <strong data-skill-value="sleightOfHand">+4</strong>
-                    <span>Sleight of Hand</span>
-                    <small>DEX</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      type="checkbox"><strong data-skill-value="sleightOfHand">+4</strong
+                    ><span>Sleight of Hand</span><small>DEX</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.stealth.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="stealth">+7</strong>
-                    <span>Stealth</span>
-                    <small>DEX</small>
-                  </label>
-                  <label class="check-row">
-                    <input
+                      checked><strong data-skill-value="stealth">+7</strong
+                    ><span>Stealth</span><small>DEX</small></label
+                  >
+                  <label class="check-row"
+                    ><input
                       data-field="skill.survival.proficient"
                       type="checkbox"
-                      checked
-                    />
-                    <strong data-skill-value="survival">+6</strong>
-                    <span>Survival</span>
-                    <small>WIS</small>
-                  </label>
+                      checked><strong data-skill-value="survival">+6</strong
+                    ><span>Survival</span><small>WIS</small></label
+                  >
                 </div>
               </section>
               <section
@@ -754,99 +668,78 @@
                 </div>
                 <div class="attack-table" role="group" aria-label="Attacks">
                   <div class="attack-table__head" aria-hidden="true">
-                    <span>Name</span>
-                    <span>Bonus</span>
-                    <span>Damage / type</span>
+                    <span>Name</span><span>Bonus</span
+                    ><span>Damage / type</span>
                   </div>
                   <div class="attack-row">
-                    <label>
-                      <span class="visually-hidden">Attack one name</span>
-                      <input
+                    <label
+                      ><span class="visually-hidden">Attack one name</span
+                      ><input
                         data-field="attack.1.name"
                         type="text"
-                        value="Thornbow"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">Attack one bonus</span>
-                      <input
+                        value="Thornbow"></label>
+                    <label
+                      ><span class="visually-hidden">Attack one bonus</span
+                      ><input
                         data-field="attack.1.bonus"
                         type="text"
-                        value="+7"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">
-                        Attack one damage and type
-                      </span>
-                      <input
+                        value="+7"></label>
+                    <label
+                      ><span class="visually-hidden"
+                        >Attack one damage and type</span
+                      ><input
                         data-field="attack.1.damage"
                         type="text"
-                        value="1d8 + 4 piercing"
-                      />
-                    </label>
+                        value="1d8 + 4 piercing"></label>
                   </div>
                   <div class="attack-row">
-                    <label>
-                      <span class="visually-hidden">Attack two name</span>
-                      <input
+                    <label
+                      ><span class="visually-hidden">Attack two name</span
+                      ><input
                         data-field="attack.2.name"
                         type="text"
-                        value="Twin knives"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">Attack two bonus</span>
-                      <input
+                        value="Twin knives"></label>
+                    <label
+                      ><span class="visually-hidden">Attack two bonus</span
+                      ><input
                         data-field="attack.2.bonus"
                         type="text"
-                        value="+7"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">
-                        Attack two damage and type
-                      </span>
-                      <input
+                        value="+7"></label>
+                    <label
+                      ><span class="visually-hidden"
+                        >Attack two damage and type</span
+                      ><input
                         data-field="attack.2.damage"
                         type="text"
-                        value="1d6 + 4 piercing"
-                      />
-                    </label>
+                        value="1d6 + 4 piercing"></label>
                   </div>
                   <div class="attack-row">
-                    <label>
-                      <span class="visually-hidden">Attack three name</span>
-                      <input
+                    <label
+                      ><span class="visually-hidden">Attack three name</span
+                      ><input
                         data-field="attack.3.name"
                         type="text"
-                        value="Briar snare"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">Attack three bonus</span>
-                      <input
+                        value="Briar snare"></label>
+                    <label
+                      ><span class="visually-hidden">Attack three bonus</span
+                      ><input
                         data-field="attack.3.bonus"
                         type="text"
-                        value="+6"
-                      />
-                    </label>
-                    <label>
-                      <span class="visually-hidden">
-                        Attack three damage and type
-                      </span>
-                      <input
+                        value="+6"></label>
+                    <label
+                      ><span class="visually-hidden"
+                        >Attack three damage and type</span
+                      ><input
                         data-field="attack.3.damage"
                         type="text"
-                        value="1d8 poison"
-                      />
-                    </label>
+                        value="1d8 poison"></label>
                   </div>
                 </div>
                 <label class="form-field">
                   <span>Combat notes</span>
                   <textarea data-field="combat.notes" rows="4">
-Favored terrain: forest. Thornbow attacks ignore half cover while Thalia is hidden among natural foliage.</textarea>
+Favored terrain: forest. Thornbow attacks ignore half cover while Thalia is hidden among natural foliage.</textarea
+                  >
                 </label>
               </section>
             </div>
@@ -859,22 +752,26 @@ Favored terrain: forest. Thornbow attacks ignore half cover while Thalia is hidd
                 <label class="trait-card trait-card--gold">
                   <span>Personality traits</span>
                   <textarea data-field="trait.personality" rows="5">
-I collect a leaf from every forest I cross and can always find the quietest path through a crowd.</textarea>
+I collect a leaf from every forest I cross and can always find the quietest path through a crowd.</textarea
+                  >
                 </label>
                 <label class="trait-card trait-card--blue">
                   <span>Ideals</span>
                   <textarea data-field="trait.ideals" rows="4">
-Stewardship. The wild gives freely; I owe it the same care in return.</textarea>
+Stewardship. The wild gives freely; I owe it the same care in return.</textarea
+                  >
                 </label>
                 <label class="trait-card trait-card--rose">
                   <span>Bonds</span>
                   <textarea data-field="trait.bonds" rows="4">
-The lantern in the oldest tree still burns for the family I left behind.</textarea>
+The lantern in the oldest tree still burns for the family I left behind.</textarea
+                  >
                 </label>
                 <label class="trait-card trait-card--violet">
                   <span>Flaws</span>
                   <textarea data-field="trait.flaws" rows="4">
-I trust the warning of a crow before the promise of a courtier.</textarea>
+I trust the warning of a crow before the promise of a courtier.</textarea
+                  >
                 </label>
               </section>
             </aside>
@@ -889,16 +786,17 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                 <h3 id="features-heading">Features &amp; traits</h3>
                 <span class="badge badge--moss">Level 5</span>
               </div>
-              <label class="visually-hidden" for="features">
-                Features and traits
-              </label>
+              <label class="visually-hidden" for="features"
+                >Features and traits</label
+              >
               <textarea id="features" data-field="character.features" rows="14">
                 Darkvision · Keen Senses · Fey Ancestry
                 Favored Enemy · Natural Explorer
                 Fighting Style: Archery
                 Spellcasting · Primeval Awareness
                 Ranger Archetype: Gloom Stalker
-                Extra Attack</textarea>
+                Extra Attack</textarea
+              >
             </section>
             <section
               class="sheet-panel compact-panel languages-panel"
@@ -906,9 +804,9 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
               aria-labelledby="proficiencies-heading"
             >
               <h3 id="proficiencies-heading">Languages &amp; proficiencies</h3>
-              <label class="visually-hidden" for="proficiencies">
-                Languages and proficiencies
-              </label>
+              <label class="visually-hidden" for="proficiencies"
+                >Languages and proficiencies</label
+              >
               <textarea
                 id="proficiencies"
                 data-field="character.proficiencies"
@@ -917,7 +815,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                 Common, Elvish, Sylvan
                 Light armor, medium armor, shields
                 Simple weapons, martial weapons
-                Herbalism kit</textarea>
+                Herbalism kit</textarea
+              >
             </section>
 
             <section
@@ -939,7 +838,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   Two leaf-shaped shortswords
                   Studded leather, explorer's pack
                   Herbalism kit, hunting trap
-                  Silver lantern and a pressed oak leaf</textarea>
+                  Silver lantern and a pressed oak leaf</textarea
+              >
             </section>
 
             <section
@@ -949,51 +849,41 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
             >
               <h3 id="currency-heading">Coin purse</h3>
               <div class="currency-grid">
-                <label>
-                  <span>CP</span>
-                  <input
+                <label
+                  ><span>CP</span
+                  ><input
                     data-field="currency.cp"
                     type="number"
                     value="4"
-                    min="0"
-                  />
-                </label>
-                <label>
-                  <span>SP</span>
-                  <input
+                    min="0"></label>
+                <label
+                  ><span>SP</span
+                  ><input
                     data-field="currency.sp"
                     type="number"
                     value="18"
-                    min="0"
-                  />
-                </label>
-                <label>
-                  <span>EP</span>
-                  <input
+                    min="0"></label>
+                <label
+                  ><span>EP</span
+                  ><input
                     data-field="currency.ep"
                     type="number"
                     value="0"
-                    min="0"
-                  />
-                </label>
-                <label>
-                  <span>GP</span>
-                  <input
+                    min="0"></label>
+                <label
+                  ><span>GP</span
+                  ><input
                     data-field="currency.gp"
                     type="number"
                     value="73"
-                    min="0"
-                  />
-                </label>
-                <label>
-                  <span>PP</span>
-                  <input
+                    min="0"></label>
+                <label
+                  ><span>PP</span
+                  ><input
                     data-field="currency.pp"
                     type="number"
                     value="2"
-                    min="0"
-                  />
-                </label>
+                    min="0"></label>
               </div>
             </section>
           </div>
@@ -1010,9 +900,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                 class="section-heading__rune"
                 data-dnd-icon="person"
                 aria-hidden="true"
+                >II</span
               >
-                II
-              </span>
               <div>
                 <p class="eyebrow">Physical record</p>
                 <h3 id="details-identity-heading">
@@ -1028,63 +917,50 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   data-field="character.name"
                   type="text"
                   value="Thalia Mosswhisper"
-                  autocomplete="off"
-                />
+                  autocomplete="off">
               </label>
-              <label class="form-field">
-                <span>Age</span>
-                <input
+              <label class="form-field"
+                ><span>Age</span
+                ><input
                   data-field="appearance.age"
                   type="text"
                   value="128"
-                  autocomplete="off"
-                />
-              </label>
-              <label class="form-field">
-                <span>Height</span>
-                <input
+                  autocomplete="off"></label>
+              <label class="form-field"
+                ><span>Height</span
+                ><input
                   data-field="appearance.height"
                   type="text"
                   value="5′ 6″"
-                  autocomplete="off"
-                />
-              </label>
-              <label class="form-field">
-                <span>Weight</span>
-                <input
+                  autocomplete="off"></label>
+              <label class="form-field"
+                ><span>Weight</span
+                ><input
                   data-field="appearance.weight"
                   type="text"
                   value="118 lb"
-                  autocomplete="off"
-                />
-              </label>
-              <label class="form-field">
-                <span>Eyes</span>
-                <input
+                  autocomplete="off"></label>
+              <label class="form-field"
+                ><span>Eyes</span
+                ><input
                   data-field="appearance.eyes"
                   type="text"
                   value="Amber"
-                  autocomplete="off"
-                />
-              </label>
-              <label class="form-field">
-                <span>Skin</span>
-                <input
+                  autocomplete="off"></label>
+              <label class="form-field"
+                ><span>Skin</span
+                ><input
                   data-field="appearance.skin"
                   type="text"
                   value="Copper"
-                  autocomplete="off"
-                />
-              </label>
-              <label class="form-field">
-                <span>Hair</span>
-                <input
+                  autocomplete="off"></label>
+              <label class="form-field"
+                ><span>Hair</span
+                ><input
                   data-field="appearance.hair"
                   type="text"
                   value="Black with moss-green braid"
-                  autocomplete="off"
-                />
-              </label>
+                  autocomplete="off"></label>
             </div>
           </section>
 
@@ -1102,7 +978,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
               <label class="form-field">
                 <span>Distinguishing details</span>
                 <textarea data-field="appearance.description" rows="8">
-                  A narrow silver scar crosses her left eyebrow. Her dark braid is threaded with tiny bones, river glass, and fresh moss. A deep green cloak smells faintly of cedar smoke.</textarea>
+                  A narrow silver scar crosses her left eyebrow. Her dark braid is threaded with tiny bones, river glass, and fresh moss. A deep green cloak smells faintly of cedar smoke.</textarea
+                >
               </label>
             </section>
 
@@ -1124,8 +1001,7 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                       data-field="allies.organization"
                       type="text"
                       value="The Lanternroot Circle"
-                      autocomplete="off"
-                    />
+                      autocomplete="off">
                   </label>
                   <p>
                     Wardens, healers, and pathfinders who keep the old roads
@@ -1143,7 +1019,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
 
                   Captain Vey — Owes Thalia a favor after the Ashbridge rescue.
 
-                  The bell-crows of Westmere recognize her silver whistle.</textarea>
+                  The bell-crows of Westmere recognize her silver whistle.</textarea
+                >
               </label>
             </section>
           </div>
@@ -1158,17 +1035,14 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   class="section-heading__rune"
                   data-dnd-icon="adventure-book"
                   aria-hidden="true"
-                >
-                  B
-                </span>
+                  >B</span>
                 <div>
                   <p class="eyebrow">Before the first roll</p>
                   <h3 id="backstory-heading">Character backstory</h3>
                 </div>
               </div>
-              <label class="visually-hidden" for="backstory">
-                Character backstory
-              </label>
+              <label class="visually-hidden" for="backstory"
+                >Character backstory</label>
               <textarea id="backstory" data-field="story.backstory" rows="22">
                 Thalia was born in the lantern villages beneath Briarwake's oldest canopy, where every home hangs from a living branch and every path changes with the season.
 
@@ -1192,9 +1066,8 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   </h3>
                   <span class="badge badge--violet">Field notes</span>
                 </div>
-                <label class="visually-hidden" for="additional-features">
-                  Additional features and traits
-                </label>
+                <label class="visually-hidden" for="additional-features"
+                  >Additional features and traits</label>
                 <textarea
                   id="additional-features"
                   data-field="story.additionalFeatures"
@@ -1252,26 +1125,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level one</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level1.slotsTotal"
                       type="number"
                       value="4"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level1.slotsUsed"
                       type="number"
                       value="1"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1289,26 +1158,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level two</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level2.slotsTotal"
                       type="number"
                       value="2"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level2.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1326,26 +1191,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level three</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level3.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level3.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1363,26 +1224,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level four</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level4.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level4.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1400,26 +1257,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level five</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level5.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level5.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1437,26 +1290,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level six</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level6.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level6.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1474,26 +1323,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level seven</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level7.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level7.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1511,26 +1356,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level eight</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level8.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level8.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div
@@ -1548,26 +1389,22 @@ I trust the warning of a crow before the promise of a courtier.</textarea>
                   <h3>Level nine</h3>
                 </div>
                 <div class="slot-fields">
-                  <label>
-                    <span>Total</span>
-                    <input
+                  <label
+                    ><span>Total</span
+                    ><input
                       data-field="spell.level9.slotsTotal"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
-                  <label>
-                    <span>Used</span>
-                    <input
+                      max="9"></label>
+                  <label
+                    ><span>Used</span
+                    ><input
                       data-field="spell.level9.slotsUsed"
                       type="number"
                       value="0"
                       min="0"
-                      max="9"
-                    />
-                  </label>
+                      max="9"></label>
                 </div>
               </header>
               <div

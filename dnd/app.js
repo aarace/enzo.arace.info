@@ -4,7 +4,7 @@ const PAGE_NAMES = ["core", "details", "spells"];
 const PAGE_TITLES = {
   core: "Core Sheet · DnD Character Sheet",
   details: "Story & Allies · DnD Character Sheet",
-  spells: "Spellbook · DnD Character Sheet"
+  spells: "Spellbook · DnD Character Sheet",
 };
 
 const defaultAbilities = {
@@ -13,7 +13,7 @@ const defaultAbilities = {
   con: 14,
   int: 12,
   wis: 16,
-  cha: 11
+  cha: 11,
 };
 
 const defaultProficiencies = new Set([
@@ -24,7 +24,7 @@ const defaultProficiencies = new Set([
   "skill.nature.proficient",
   "skill.perception.proficient",
   "skill.stealth.proficient",
-  "skill.survival.proficient"
+  "skill.survival.proficient",
 ]);
 
 const skillAbilities = {
@@ -45,7 +45,7 @@ const skillAbilities = {
   religion: "int",
   sleightOfHand: "dex",
   stealth: "dex",
-  survival: "wis"
+  survival: "wis",
 };
 
 const spellDefaults = {
@@ -58,7 +58,7 @@ const spellDefaults = {
     "",
     "",
     "",
-    ""
+    "",
   ],
   2: [
     "Pass Without Trace",
@@ -68,7 +68,7 @@ const spellDefaults = {
     "",
     "",
     "",
-    ""
+    "",
   ],
   3: ["Conjure Barrage", "Plant Growth", "", "", "", "", ""],
   4: ["", "", "", "", "", "", ""],
@@ -76,7 +76,7 @@ const spellDefaults = {
   6: ["", "", "", "", "", ""],
   7: ["", "", "", "", "", ""],
   8: ["", "", "", "", "", ""],
-  9: ["", "", "", "", "", ""]
+  9: ["", "", "", "", "", ""],
 };
 
 let characterState = readState();
@@ -181,7 +181,7 @@ function buildSpellRows() {
       line.className = "spell-line";
       preparedLabel.setAttribute(
         "aria-label",
-        `Prepare level ${level} spell ${index + 1}`
+        `Prepare level ${level} spell ${index + 1}`,
       );
 
       preparedInput.type = "checkbox";
@@ -266,7 +266,7 @@ function bindActions() {
   document.querySelectorAll("[data-reset-sheet]").forEach((button) => {
     button.addEventListener("click", () => {
       const shouldReset = window.confirm(
-        "Reset every page of DnD Character Sheet to the demo character? This clears locally saved edits."
+        "Reset every page of DnD Character Sheet to the demo character? This clears locally saved edits.",
       );
 
       if (!shouldReset) {
@@ -318,7 +318,7 @@ function bindPageTabs() {
 
 function navigateToPage(
   pageName,
-  { updateHistory = true, focusContent = true } = {}
+  { updateHistory = true, focusContent = true } = {},
 ) {
   if (!PAGE_NAMES.includes(pageName)) {
     return;
@@ -405,7 +405,7 @@ function getBooleanField(fieldName) {
 
 function getAbilityScore(ability) {
   const score = Number(
-    getFieldValue(`ability.${ability}`, defaultAbilities[ability])
+    getFieldValue(`ability.${ability}`, defaultAbilities[ability]),
   );
   return Number.isFinite(score) ? score : defaultAbilities[ability];
 }
@@ -523,7 +523,7 @@ function initForestParticles() {
     particles.length = 0;
     const particleCount = Math.max(
       18,
-      Math.min(42, Math.floor(viewportWidth / 34))
+      Math.min(42, Math.floor(viewportWidth / 34)),
     );
 
     for (let index = 0; index < particleCount; index += 1) {
@@ -534,7 +534,7 @@ function initForestParticles() {
         drift: Math.random() * 0.16 + 0.04,
         sway: Math.random() * 0.45 + 0.08,
         phase: Math.random() * Math.PI * 2,
-        alpha: Math.random() * 0.42 + 0.15
+        alpha: Math.random() * 0.42 + 0.15,
       });
     }
   }
