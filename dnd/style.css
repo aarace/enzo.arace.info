@@ -1,0 +1,2371 @@
+@import url('href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800;9..40,900&amp;display=swap"');
+@font-face {
+  font-family: "Rose Gard";
+  src: url("https://dnd.bakedbears.net/assets/fonts/rose_gard.otf")
+    format("opentype");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --forest-black: #0a110d;
+  --forest-night: #101b14;
+  --forest-deep: #173022;
+  --moss: #60834c;
+  --moss-bright: #9bc46c;
+  --moss-pale: #d8e6bb;
+  --paper: #f5eed9;
+  --paper-light: #fffaf0;
+  --ink: #1c2a21;
+  --ink-soft: #516052;
+  --line: rgba(40, 59, 43, 0.19);
+  --gold: #d8a747;
+  --gold-deep: #996717;
+  --rose: #cb6c78;
+  --rose-deep: #8e3d4c;
+  --blue: #5e96b1;
+  --blue-deep: #315f79;
+  --violet: #8072b4;
+  --violet-deep: #50447f;
+  --danger: #a94e4c;
+  --danger-deep: #6f2c2a;
+  --radius-sm: 0.55rem;
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --shadow-dark: 0 1.2rem 4rem rgba(0, 0, 0, 0.38);
+  --container: 100rem;
+  --gutter: clamp(0.8rem, 2vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  background: var(--forest-black);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(126, 163, 84, 0.15),
+      transparent 45%
+    ),
+    var(--forest-black);
+  color: var(--paper);
+  font-family: "DM Sans", "Avenir Next", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body[data-page="details"] {
+  --page-accent: var(--blue);
+  --page-accent-deep: var(--blue-deep);
+}
+
+body[data-page="spells"] {
+  --page-accent: var(--violet);
+  --page-accent-deep: var(--violet-deep);
+}
+
+body[data-page="core"] {
+  --page-accent: var(--moss-bright);
+  --page-accent-deep: var(--moss);
+}
+
+.page-view {
+  display: none;
+}
+
+html[data-active-page="core"] [data-page-view="core"],
+html[data-active-page="details"] [data-page-view="details"],
+html[data-active-page="spells"] [data-page-view="spells"] {
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-block-start: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.05;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 0.2rem solid var(--gold);
+  outline-offset: 0.2rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--paper-light);
+  color: var(--ink);
+  font-weight: 900;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Same-document View Transitions */
+
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 360ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: page-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: page-fade-in;
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* D&D icon language */
+
+:is([data-dnd-icon="adventure-book"], [data-panel-icon="adventure-book"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/adventure-book.svg");
+}
+
+:is([data-dnd-icon="armor"], [data-panel-icon="armor"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/armor.svg");
+}
+
+:is([data-dnd-icon="blood"], [data-panel-icon="blood"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/blood.svg");
+}
+
+:is([data-dnd-icon="character"], [data-panel-icon="character"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/character.svg");
+}
+
+:is([data-dnd-icon="cost"], [data-panel-icon="cost"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/cost.svg");
+}
+
+:is([data-dnd-icon="d20"], [data-panel-icon="d20"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/d20.svg");
+}
+
+:is([data-dnd-icon="dnd"], [data-panel-icon="dnd"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/dnd.svg");
+}
+
+:is([data-dnd-icon="loot"], [data-panel-icon="loot"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/loot.svg");
+}
+
+:is([data-dnd-icon="pack"], [data-panel-icon="pack"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/pack.svg");
+}
+
+:is([data-dnd-icon="party"], [data-panel-icon="party"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/party.svg");
+}
+
+:is([data-dnd-icon="person"], [data-panel-icon="person"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/person.svg");
+}
+
+:is([data-dnd-icon="ranger"], [data-panel-icon="ranger"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/ranger.svg");
+}
+
+:is([data-dnd-icon="scroll"], [data-panel-icon="scroll"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/scroll.svg");
+}
+
+:is([data-dnd-icon="skillcheck"], [data-panel-icon="skillcheck"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/skillcheck.svg");
+}
+
+:is([data-dnd-icon="spellbook"], [data-panel-icon="spellbook"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/spellbook.svg");
+}
+
+:is([data-dnd-icon="trinket"], [data-panel-icon="trinket"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/trinket.svg");
+}
+
+:is([data-dnd-icon="weapon"], [data-panel-icon="weapon"]) {
+  --dnd-icon: url("https://dnd.bakedbears.net/assets/icons/dnd/weapon.svg");
+}
+
+/* Forest composition */
+
+.forest-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.forest-scene__background,
+.forest-scene__particles,
+.forest-scene__glow,
+.forest-scene__frame,
+.forest-scene__vine {
+  position: absolute;
+}
+
+.forest-scene__background {
+  inset: -1rem;
+  background-image:
+    linear-gradient(rgba(5, 13, 8, 0.35), rgba(5, 13, 8, 0.7)),
+    url("https://dnd.bakedbears.net/assets/images/tree_background.webp");
+  background-position: center;
+  background-size: cover;
+  filter: saturate(0.82) blur(0.12rem);
+  transform: scale(1.025);
+}
+
+.forest-scene__particles {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forest-scene__glow {
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(222, 186, 95, 0.18),
+      transparent 24rem
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 11, 7, 0.6),
+      transparent 20%,
+      transparent 80%,
+      rgba(5, 11, 7, 0.6)
+    );
+}
+
+.forest-scene__frame {
+  inset: -0.4rem;
+  background: url("https://dnd.bakedbears.net/assets/images/shrubbery_trans.webp")
+    center / cover no-repeat;
+  opacity: 0.42;
+  filter: blur(0.04rem) saturate(0.9);
+  transform: scale(1.035);
+}
+
+.forest-scene__vine {
+  top: -2rem;
+  width: min(32vw, 29rem);
+  height: 110vh;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.52;
+  filter: saturate(0.88) blur(0.02rem);
+}
+
+.forest-scene__vine--left {
+  left: -8rem;
+  background-image: url("https://dnd.bakedbears.net/assets/images/left_vine.webp");
+  transform: scaleX(-1) rotate(-4deg);
+  transform-origin: top;
+}
+
+.forest-scene__vine--right {
+  right: -6rem;
+  width: min(23vw, 20rem);
+  background-image: url("https://dnd.bakedbears.net/assets/images/right_vine.webp");
+  transform: rotate(4deg);
+  transform-origin: top;
+}
+
+/* Shared shell */
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - (var(--gutter) * 2)), var(--container));
+  margin-inline: auto;
+  padding-block: var(--gutter) 2rem;
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.75rem;
+  padding: 0.7rem 0.85rem 0.7rem 1.1rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.brand__mark {
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.brand__mark[data-dnd-icon] {
+  font-size: 0;
+}
+
+.brand__mark[data-dnd-icon]::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  place-self: center;
+  background: currentColor;
+  content: "";
+  -webkit-mask: var(--dnd-icon) center / contain no-repeat;
+  mask: var(--dnd-icon) center / contain no-repeat;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.save-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-inline: 0.4rem;
+  color: rgba(245, 238, 217, 0.72);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.save-status__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--moss-bright);
+  box-shadow: 0 0 0.65rem rgba(155, 196, 108, 0.72);
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.save-status.is-saving .save-status__dot {
+  background: var(--gold);
+  transform: scale(1.25);
+}
+
+.save-status.is-error .save-status__dot {
+  background: var(--danger);
+  box-shadow: 0 0 0.65rem rgba(169, 78, 76, 0.72);
+}
+
+.button {
+  --button-color: var(--paper);
+  --button-edge: #a89a78;
+  display: inline-flex;
+  min-height: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(24, 36, 27, 0.35);
+  border-radius: 0.65rem;
+  background: var(--button-color);
+  box-shadow:
+    inset 0 0.08rem 0 rgba(255, 255, 255, 0.45),
+    0 0.15rem 0 var(--button-color),
+    0 0.34rem 0 var(--button-edge),
+    0 0.6rem 1rem rgba(5, 11, 7, 0.18);
+  color: var(--ink);
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease;
+}
+
+.button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-0.08rem);
+}
+
+.button:active {
+  transform: translateY(0.24rem);
+  box-shadow:
+    inset 0 0.08rem 0 rgba(255, 255, 255, 0.3),
+    0 0.1rem 0 var(--button-edge),
+    0 0.15rem 0 var(--button-edge);
+}
+
+.button--compact {
+  min-height: 2.45rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.78rem;
+}
+
+.button--quiet {
+  --button-color: #e8dfc6;
+  --button-edge: #95886c;
+}
+
+.button--danger {
+  --button-color: #c66563;
+  --button-edge: var(--danger-deep);
+  color: #fff8ef;
+}
+
+.character-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  min-height: 12rem;
+  margin-top: 1rem;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  box-shadow: none;
+  isolation: isolate;
+}
+
+.character-hero::before {
+  display: none;
+}
+
+.character-sigil {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: clamp(6rem, 9vw, 8rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(216, 167, 71, 0.4);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 167, 71, 0.13),
+    rgba(9, 21, 13, 0.9) 72%
+  );
+  box-shadow:
+    inset 0 0 0 0.45rem rgba(5, 12, 8, 0.25),
+    0 0 2rem rgba(216, 167, 71, 0.13);
+}
+
+.character-sigil svg {
+  width: 70%;
+  fill: rgba(216, 167, 71, 0.08);
+  stroke: var(--gold);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+}
+
+.character-sigil[data-dnd-icon] svg {
+  display: none;
+}
+
+.character-sigil[data-dnd-icon]::before {
+  width: 62%;
+  aspect-ratio: 1;
+  background: var(--gold);
+  content: "";
+  -webkit-mask: var(--dnd-icon) center / contain no-repeat;
+  mask: var(--dnd-icon) center / contain no-repeat;
+}
+
+.character-hero__copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--gold-deep);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.character-hero .eyebrow {
+  color: var(--gold);
+}
+
+.character-hero h1 {
+  margin-bottom: 0.35rem;
+  color: var(--paper-light);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.86;
+  text-shadow: 0 0.2rem 1.25rem rgba(2, 8, 4, 0.85);
+  text-wrap: balance;
+}
+
+.character-summary {
+  margin-bottom: 0;
+  color: rgba(245, 238, 217, 0.72);
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  font-weight: 700;
+  text-shadow: 0 0.15rem 0.65rem rgba(2, 8, 4, 0.9);
+}
+
+.character-hero__seal {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--paper-light);
+  rotate: 0deg;
+  text-align: center;
+  text-shadow: 0 0.2rem 0.9rem rgba(0, 0, 0, 0.9);
+}
+
+.character-hero__seal span {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.character-hero__seal strong {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.page-tabs {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 15;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1rem auto 0;
+  padding: 0.35rem;
+  border: 1px solid rgba(234, 226, 194, 0.12);
+  border-radius: var(--radius);
+  background: rgba(9, 18, 12, 0.82);
+  box-shadow: var(--shadow-dark);
+  backdrop-filter: blur(1rem);
+  isolation: isolate;
+  overflow: visible;
+}
+
+.page-tabs::before {
+  position: absolute;
+  top: -3.15rem;
+  right: 0.25rem;
+  left: auto;
+  z-index: 30;
+  width: 13rem;
+  height: 5rem;
+  background: url("https://dnd.bakedbears.net/assets/images/top_grass.webp")
+    center / 100% 100% no-repeat;
+  content: "";
+  filter: drop-shadow(0 0.45rem 0.45rem rgba(0, 0, 0, 0.36)) saturate(0.88);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.page-tabs::after {
+  position: absolute;
+  top: calc(0% - 0.1rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  z-index: 20;
+  width: clamp(5rem, 9vw, 9rem);
+  aspect-ratio: 1525 / 2606;
+  background: url("https://dnd.bakedbears.net/assets/images/left_vine.webp") top
+    center / contain no-repeat;
+  content: "";
+  filter: drop-shadow(0 0.75rem 0.8rem rgba(0, 0, 0, 0)) saturate(0.9);
+  opacity: 0.8;
+  pointer-events: none;
+  transform-origin: top center;
+}
+
+.page-tab {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  color: rgba(245, 238, 217, 0.58);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.page-tab[data-dnd-icon]::before {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  content: "";
+  -webkit-mask: var(--dnd-icon) center / contain no-repeat;
+  mask: var(--dnd-icon) center / contain no-repeat;
+}
+
+.page-tab:hover {
+  color: var(--paper-light);
+}
+
+.page-tab[aria-current="page"] {
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: linear-gradient(
+    135deg,
+    var(--page-accent),
+    var(--page-accent-deep)
+  );
+  box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.22);
+  color: var(--forest-night);
+}
+
+.page-tab__number {
+  color: var(--gold);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.page-tab[aria-current="page"] .page-tab__number {
+  color: var(--forest-deep);
+}
+
+.sheet-page {
+  margin-top: 1rem;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.sheet-page:focus-visible {
+  outline: none;
+}
+
+.sheet-page .column-heading .eyebrow {
+  color: var(--gold);
+}
+
+.sheet-page .column-heading h3 {
+  color: var(--paper-light);
+  text-shadow: 0 0.15rem 0.65rem rgba(2, 8, 4, 0.9);
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0.5rem 0;
+  color: rgba(245, 238, 217, 0.55);
+  font-size: 0.72rem;
+}
+
+.site-footer p {
+  margin-bottom: 0;
+}
+
+/* Shared panels and controls */
+
+.sheet-panel {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+  box-shadow:
+    0 0.25rem 0 rgba(190, 174, 137, 0.6),
+    0 0.6rem 1.25rem rgba(74, 61, 40, 0.08);
+}
+
+.section-heading,
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.section-heading h3,
+.panel-title-row h3,
+.sheet-panel > h3,
+.column-heading h3 {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.section-heading__rune {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 45% 55% 48% 52%;
+  background: var(--ink);
+  box-shadow: 0 0.25rem 0 var(--gold);
+  color: var(--paper-light);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.section-heading__rune[data-dnd-icon] {
+  font-size: 0;
+}
+
+.section-heading__rune[data-dnd-icon]::before {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-self: center;
+  background: currentColor;
+  content: "";
+  -webkit-mask: var(--dnd-icon) center / contain no-repeat;
+  mask: var(--dnd-icon) center / contain no-repeat;
+}
+
+.section-heading--small {
+  margin-bottom: 0.75rem;
+}
+
+.section-heading--small .section-heading__rune {
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.05rem;
+}
+
+.section-heading--small .section-heading__rune[data-dnd-icon] {
+  font-size: 0;
+}
+
+.section-heading--small .section-heading__rune[data-dnd-icon]::before {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.column-heading {
+  margin-bottom: 0.85rem;
+  padding-inline: 0.3rem;
+}
+
+.panel-title-row {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.125rem dotted rgba(28, 42, 33, 0.24);
+}
+
+[data-panel-icon] .panel-title-row h3,
+.sheet-panel[data-panel-icon] > h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+[data-panel-icon] .panel-title-row h3::before,
+.sheet-panel[data-panel-icon] > h3::before {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  content: "";
+  -webkit-mask: var(--dnd-icon) center / contain no-repeat;
+  mask: var(--dnd-icon) center / contain no-repeat;
+}
+
+.badge {
+  display: inline-flex;
+  min-height: 1.65rem;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid rgba(28, 42, 33, 0.16);
+  border-radius: 999px;
+  background: var(--moss-pale);
+  color: var(--ink);
+  font-size: 0.63rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge--gold {
+  background: #f2d68d;
+}
+.badge--moss {
+  background: #c9dda6;
+}
+.badge--rose {
+  background: #efbdc2;
+}
+.badge--blue {
+  background: #b9d9e5;
+}
+.badge--violet {
+  background: #d4cdec;
+}
+
+.form-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.form-field > span,
+.identity-grid .form-field > span,
+.details-identity__grid .form-field > span {
+  color: var(--ink-soft);
+  font-size: 0.63rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(28, 42, 33, 0.18);
+  border-radius: 0.55rem;
+  background: rgba(255, 253, 246, 0.82);
+  color: var(--ink);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+}
+
+input,
+select {
+  min-height: 2.55rem;
+  padding: 0.55rem 0.7rem;
+}
+
+textarea {
+  padding: 0.7rem;
+  line-height: 1.48;
+  resize: vertical;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: rgba(28, 42, 33, 0.35);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--moss);
+  background: var(--paper-light);
+  box-shadow: 0 0 0 0.22rem rgba(96, 131, 76, 0.16);
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  min-height: auto;
+  height: 1rem;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--moss);
+}
+
+.identity-panel {
+  margin-bottom: 1.35rem;
+}
+
+.identity-panel .section-heading__rune {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #080a08;
+}
+
+.identity-panel .section-heading__rune[data-dnd-icon]::before {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.vitality-panel .section-heading__rune {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #080a08;
+}
+
+.vitality-panel .section-heading__rune[data-dnd-icon]::before {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.identity-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.form-field--identity-name {
+  grid-column: span 5;
+}
+
+.form-field--identity-class {
+  grid-column: span 3;
+}
+
+.form-field--identity-level {
+  grid-column: span 1;
+}
+
+.form-field--identity-background {
+  grid-column: span 3;
+}
+
+.form-field--identity-player {
+  grid-column: span 4;
+}
+
+.form-field--identity-race,
+.form-field--identity-alignment {
+  grid-column: span 3;
+}
+
+.form-field--identity-xp {
+  grid-column: span 2;
+}
+
+.form-field--wide {
+  grid-column: span 2;
+}
+
+.mini-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mini-legend i {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--moss);
+  box-shadow: 0 0 0.4rem rgba(96, 131, 76, 0.55);
+}
+
+/* Page one: core sheet */
+
+.core-layout {
+  display: grid;
+  grid-template-columns: minmax(11.5rem, 0.72fr) minmax(34rem, 2.1fr) minmax(
+      17rem,
+      1fr
+    );
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.ability-column,
+.record-column,
+.traits-column,
+.story-side-stack {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.ability-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ability-card {
+  --ability: var(--moss);
+  --ability-deep: #41632f;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 3.25rem;
+  grid-template-rows: auto auto;
+  min-height: 6.4rem;
+  align-items: center;
+  gap: 0.15rem 0.65rem;
+  padding: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(28, 42, 33, 0.18);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    130deg,
+    rgba(255, 253, 246, 0.88),
+    color-mix(in srgb, var(--ability) 23%, white)
+  );
+  box-shadow:
+    0 0.3rem 0 var(--ability-deep),
+    0 0.75rem 1.2rem rgba(49, 47, 31, 0.12);
+}
+
+.ability-card::after {
+  position: absolute;
+  right: -0.55rem;
+  bottom: -0.6rem;
+  color: color-mix(in srgb, var(--ability-deep) 14%, transparent);
+  content: attr(data-rune);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.ability-card label {
+  align-self: end;
+  color: var(--ability-deep);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ability-card input {
+  grid-row: 2;
+  width: 4.5rem;
+  min-height: 2.65rem;
+  padding: 0.2rem;
+  border-color: color-mix(in srgb, var(--ability-deep) 36%, transparent);
+  background: rgba(255, 253, 246, 0.72);
+  font-size: 1.45rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.ability-card__modifier {
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  display: grid;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 0.16rem solid var(--ability-deep);
+  border-radius: 50%;
+  background: var(--paper-light);
+  color: var(--ability-deep);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.ability-card__abbr {
+  position: absolute;
+  top: 0.42rem;
+  right: 0.35rem;
+  color: rgba(28, 42, 33, 0.14);
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.ability-card--strength {
+  --ability: #e19a83;
+  --ability-deep: #8f4d3f;
+}
+.ability-card--dexterity {
+  --ability: #e6c876;
+  --ability-deep: #8b6e24;
+}
+.ability-card--constitution {
+  --ability: #a8c87e;
+  --ability-deep: #557438;
+}
+.ability-card--intelligence {
+  --ability: #8dbdd1;
+  --ability-deep: #426e82;
+}
+.ability-card--wisdom {
+  --ability: #a3a0d1;
+  --ability-deep: #5c588e;
+}
+.ability-card--charisma {
+  --ability: #dc96ac;
+  --ability-deep: #8b4d64;
+}
+
+.passive-card {
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: 0 0.3rem 0 var(--gold);
+  color: var(--paper);
+}
+
+.passive-card span {
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.passive-card output {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.compact-panel textarea {
+  min-height: 11.5rem;
+  border: 0;
+  background: transparent;
+}
+
+.combat-stats {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(4, minmax(5.5rem, 1fr));
+  gap: 0.75rem;
+}
+
+.stat-tile {
+  display: grid;
+  min-width: 0;
+  min-height: 7.25rem;
+  align-content: center;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(28, 42, 33, 0.18);
+  border-radius: 9px;
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow:
+    0 0.3rem 0 var(--ink-soft),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+
+.stat-tile > span:first-child {
+  color: var(--ink-soft);
+  font-size: 0.59rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stat-tile input,
+.stat-tile output {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.15rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.stat-tile__input-with-unit {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.stat-tile__input-with-unit input {
+  width: 4.25rem;
+  min-width: 4.25rem;
+  flex: 0 0 4.25rem;
+  padding-inline: 0.35rem;
+}
+
+.stat-tile__input-with-unit small {
+  flex: 0 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.stat-tile--armor {
+  box-shadow:
+    0 0.3rem 0 var(--rose-deep),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+.stat-tile--initiative {
+  box-shadow:
+    0 0.3rem 0 var(--gold-deep),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+.stat-tile--speed {
+  box-shadow:
+    0 0.3rem 0 var(--blue-deep),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+.stat-tile--proficiency {
+  box-shadow:
+    0 0.3rem 0 var(--moss),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+.stat-tile--inspiration {
+  box-shadow:
+    0 0.3rem 0 var(--violet-deep),
+    0 0.7rem 1rem rgba(28, 42, 33, 0.1);
+}
+
+.vitality-panel {
+  background: var(--paper-light);
+}
+
+.vitality-grid {
+  display: grid;
+  grid-template-columns: 1.45fr repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.vitality-field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.vitality-field span {
+  color: var(--ink-soft);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vitality-field input {
+  background: rgba(255, 253, 246, 0.65);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.vitality-field--current input {
+  color: var(--rose-deep);
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 2rem;
+}
+
+.checks-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(12rem, 0.8fr);
+  gap: 1rem;
+}
+
+.check-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 1rem;
+}
+
+.check-row {
+  display: grid;
+  grid-template-columns: 1rem 2.2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px dotted rgba(28, 42, 33, 0.18);
+  cursor: pointer;
+}
+
+.check-row strong {
+  font-weight: 900;
+  text-align: center;
+}
+
+.check-row span {
+  min-width: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.check-row small {
+  color: var(--ink-soft);
+  font-size: 0.56rem;
+  font-weight: 900;
+}
+
+.death-panel {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  background: var(--paper-light);
+}
+
+.death-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.7rem;
+  border: 1px solid rgba(28, 42, 33, 0.14);
+  border-radius: 0.75rem;
+}
+
+.death-row legend {
+  float: left;
+  min-width: 5.2rem;
+  color: var(--moss);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.death-row--failures legend {
+  color: var(--rose-deep);
+}
+
+.death-row label {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.death-row label span {
+  display: grid;
+  width: 1.6rem;
+  height: 1.6rem;
+  place-items: center;
+  border: 0.1rem solid var(--moss);
+  border-radius: 50%;
+  color: transparent;
+  font-size: 0.6rem;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.death-row--failures label span {
+  border-color: var(--rose-deep);
+}
+
+.death-row input {
+  position: absolute;
+  opacity: 0;
+}
+
+.death-row input:focus-visible + span {
+  outline: 0.18rem solid var(--gold);
+  outline-offset: 0.14rem;
+}
+
+.death-row input:checked + span {
+  background: var(--moss);
+  box-shadow: 0 0 0.65rem rgba(96, 131, 76, 0.5);
+}
+
+.death-row--failures input:checked + span {
+  background: var(--rose-deep);
+  box-shadow: 0 0 0.65rem rgba(142, 61, 76, 0.45);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem 1.5rem;
+}
+
+.attack-table {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.attack-table__head,
+.attack-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.55fr 1.6fr;
+  gap: 0.5rem;
+}
+
+.attack-table__head {
+  padding-inline: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.attack-row input {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.traits-column .column-heading {
+  padding-inline: 0;
+}
+
+.trait-stack {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.trait-card {
+  --trait-color: var(--gold);
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--trait-color) 45%, transparent);
+  border-left: 0.45rem solid var(--trait-color);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--trait-color) 15%, white);
+  box-shadow: 0 0.25rem 0 color-mix(in srgb, var(--trait-color) 62%, var(--ink));
+}
+
+.trait-card > span {
+  color: color-mix(in srgb, var(--trait-color) 70%, var(--ink));
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.trait-card textarea {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.78rem;
+}
+
+.trait-card--gold {
+  --trait-color: var(--gold);
+}
+.trait-card--blue {
+  --trait-color: var(--blue);
+}
+.trait-card--rose {
+  --trait-color: var(--rose);
+}
+.trait-card--violet {
+  --trait-color: var(--violet);
+}
+
+.features-panel textarea,
+.languages-panel textarea,
+.equipment-panel textarea {
+  min-height: 13rem;
+  border: 0;
+  background: transparent;
+}
+
+.supplement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.supplement-grid > .sheet-panel {
+  height: 100%;
+}
+
+.currency-panel {
+  align-self: stretch;
+}
+
+.currency-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.currency-grid label {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.currency-grid span {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+.currency-grid input {
+  min-height: 2.25rem;
+  text-align: center;
+}
+
+/* Page two: story */
+
+.details-identity {
+  margin-bottom: 1.25rem;
+}
+
+.details-identity .section-heading__rune,
+.backstory-panel .section-heading__rune {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #080a08;
+}
+
+.details-identity .section-heading__rune[data-dnd-icon]::before,
+.backstory-panel .section-heading__rune[data-dnd-icon]::before {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.details-identity__grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(6, minmax(6.5rem, 1fr));
+  gap: 0.8rem;
+}
+
+.story-layout,
+.story-record-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.story-layout {
+  grid-template-columns: minmax(17rem, 0.8fr) minmax(24rem, 1.45fr);
+}
+
+.story-record-grid {
+  grid-template-columns: minmax(24rem, 1.45fr) minmax(20rem, 1fr);
+  margin-top: 1.25rem;
+}
+
+.portrait-panel,
+.allies-panel,
+.backstory-panel {
+  min-width: 0;
+}
+
+.portrait-panel .panel-title-row {
+  margin-bottom: 1rem;
+}
+
+.organization-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(49, 95, 121, 0.25);
+  border-radius: var(--radius);
+  background: rgba(185, 217, 229, 0.3);
+}
+
+.organization-card p {
+  margin: 0.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.allies-panel > .form-field textarea {
+  min-height: 19rem;
+}
+
+.backstory-panel textarea,
+.story-side-stack textarea {
+  border: 0;
+  background: repeating-linear-gradient(
+    transparent 0 1.7rem,
+    rgba(28, 42, 33, 0.1) 1.7rem calc(1.7rem + 1px)
+  );
+  line-height: 1.7rem;
+}
+
+/* Page three: spellbook */
+
+.spell-level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.spell-card {
+  --spell-color: var(--violet);
+  --spell-deep: var(--violet-deep);
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--spell-deep) 35%, transparent);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 253, 246, 0.94),
+    color-mix(in srgb, var(--spell-color) 18%, white)
+  );
+  box-shadow:
+    0 0.4rem 0 var(--spell-deep),
+    0 0.85rem 1.5rem rgba(52, 43, 65, 0.12);
+}
+
+.spell-card__header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 4rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.15rem dotted
+    color-mix(in srgb, var(--spell-deep) 28%, transparent);
+}
+
+.spell-card__header h3 {
+  margin: 0;
+  color: var(--spell-deep);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.spell-card__header .eyebrow {
+  margin: 0;
+  color: color-mix(in srgb, var(--spell-deep) 78%, var(--ink));
+  font-size: 0.54rem;
+}
+
+.spell-level-gem {
+  display: grid;
+  width: 3.1rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 0.16rem solid var(--spell-deep);
+  border-radius: 45% 55% 48% 52%;
+  background: var(--spell-color);
+  box-shadow:
+    inset 0 0 0 0.25rem rgba(255, 255, 255, 0.2),
+    0 0.22rem 0 var(--spell-deep);
+  color: #fff;
+  font-family: "Rose Gard", Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.slot-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 2.6rem);
+  gap: 0.35rem;
+}
+
+.slot-fields label {
+  display: grid;
+  gap: 0.15rem;
+  text-align: center;
+}
+
+.slot-fields span {
+  color: var(--spell-deep);
+  font-size: 0.48rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.slot-fields input {
+  min-height: 2.2rem;
+  padding: 0.2rem;
+  border-color: color-mix(in srgb, var(--spell-deep) 32%, transparent);
+  font-weight: 900;
+  text-align: center;
+}
+
+.spell-list {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.spell-line {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.spell-line label {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.spell-line input[type="checkbox"] {
+  appearance: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 0.1rem solid var(--spell-deep);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.spell-line input[type="checkbox"]:checked {
+  background: var(--spell-color);
+  box-shadow: 0 0 0.55rem
+    color-mix(in srgb, var(--spell-color) 65%, transparent);
+}
+
+.spell-line input[type="text"] {
+  min-height: 2.15rem;
+  padding: 0.35rem 0.45rem;
+  border: 0;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--spell-deep) 25%, transparent);
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.spell-card--0 {
+  --spell-color: #7fa86a;
+  --spell-deep: #456836;
+}
+.spell-card--1 {
+  --spell-color: #d6b257;
+  --spell-deep: #8b6c20;
+}
+.spell-card--2 {
+  --spell-color: #db8f70;
+  --spell-deep: #934d36;
+}
+.spell-card--3 {
+  --spell-color: #ce7182;
+  --spell-deep: #8d3f53;
+}
+.spell-card--4 {
+  --spell-color: #a97bab;
+  --spell-deep: #6c4771;
+}
+.spell-card--5 {
+  --spell-color: #7f7fb7;
+  --spell-deep: #4f4c82;
+}
+.spell-card--6 {
+  --spell-color: #6597bb;
+  --spell-deep: #376681;
+}
+.spell-card--7 {
+  --spell-color: #5ba5a1;
+  --spell-deep: #2f6d69;
+}
+.spell-card--8 {
+  --spell-color: #709b77;
+  --spell-deep: #416946;
+}
+.spell-card--9 {
+  --spell-color: #9d8b64;
+  --spell-deep: #655635;
+}
+
+.no-script-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: #f2d68d;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+/* Responsive layouts */
+
+@media (max-width: 87.5rem) {
+  .core-layout {
+    grid-template-columns: minmax(11rem, 0.72fr) minmax(32rem, 2fr);
+  }
+
+  .traits-column {
+    grid-column: 1 / -1;
+  }
+
+  .trait-stack {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .supplement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .features-panel textarea {
+    min-height: 9rem;
+  }
+
+  .details-identity__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .spell-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 68rem) {
+  .forest-scene__vine {
+    opacity: 0.34;
+  }
+
+  .identity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .identity-grid > .form-field {
+    grid-column: auto;
+  }
+
+  .identity-grid > .form-field--identity-name,
+  .identity-grid > .form-field--identity-xp {
+    grid-column: 1 / -1;
+  }
+
+  .core-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ability-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .compact-panel textarea {
+    min-height: 8rem;
+  }
+
+  .record-column {
+    grid-column: 1;
+  }
+
+  .traits-column {
+    grid-column: 1;
+  }
+
+  .supplement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .story-layout,
+  .story-record-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 52rem) {
+  :root {
+    --gutter: 0.65rem;
+  }
+
+  .page-tabs::after {
+    right: 0.35rem;
+    width: 10rem;
+    opacity: 0.52;
+    transform: rotate(4deg);
+  }
+
+  .page-tabs::before {
+    top: -2.35rem;
+    right: 0.15rem;
+    left: auto;
+    width: 10rem;
+    height: 3.85rem;
+    opacity: 0.78;
+  }
+
+  .site-header {
+    min-height: 4rem;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.45rem;
+  }
+
+  .brand__mark {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .header-actions {
+    min-width: 0;
+    flex: 1;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+  }
+
+  .save-status {
+    width: auto;
+    margin-left: auto;
+    padding-inline: 0.15rem;
+    justify-content: flex-end;
+    font-size: 0.7rem;
+  }
+
+  .header-actions .button {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding-inline: 0.7rem;
+  }
+
+  .character-hero {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .character-hero__seal {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+  }
+
+  .character-hero__copy {
+    padding-right: 3.5rem;
+  }
+
+  .identity-grid,
+  .details-identity__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-field--wide {
+    grid-column: 1 / -1;
+  }
+
+  .ability-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .combat-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vitality-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .checks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trait-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .story-layout,
+  .story-record-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 40rem) {
+  .forest-scene__vine {
+    display: none;
+  }
+
+  .forest-scene__frame {
+    opacity: 0.28;
+  }
+
+  .page-tabs::before,
+  .page-tabs::after {
+    display: none;
+  }
+
+  .site-header {
+    display: flex;
+    padding: 0.45rem 0.25rem;
+  }
+
+  .brand__mark {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .header-actions {
+    justify-content: flex-end;
+    gap: 0.35rem;
+  }
+
+  .save-status {
+    gap: 0.3rem;
+    justify-content: flex-end;
+    font-size: 0.66rem;
+  }
+
+  .save-status__dot {
+    width: 0.45rem;
+    height: 0.45rem;
+  }
+
+  .header-actions .button {
+    flex: 0 0 auto;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .character-hero {
+    grid-template-columns: 4.2rem minmax(0, 1fr);
+    gap: 0.7rem;
+    min-height: 10rem;
+    padding: 1rem;
+  }
+
+  .character-sigil {
+    width: 4.2rem;
+  }
+
+  .character-hero h1 {
+    font-size: clamp(2.15rem, 10.8vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+
+  .character-hero__copy {
+    padding-right: 0;
+  }
+
+  .character-hero__seal {
+    display: none;
+  }
+
+  .page-tabs {
+    position: sticky;
+    top: 0.35rem;
+  }
+
+  .page-tab {
+    min-height: 3.1rem;
+    gap: 0.3rem;
+    padding: 0.55rem 0.35rem;
+    font-size: 0.66rem;
+    text-align: center;
+  }
+
+  .page-tab__number {
+    display: none;
+  }
+
+  .sheet-page {
+    padding: 0.85rem;
+    border-radius: var(--radius);
+  }
+
+  .identity-grid,
+  .details-identity__grid,
+  .ability-stack,
+  .combat-stats,
+  .vitality-grid,
+  .check-list,
+  .skills-grid,
+  .trait-stack,
+  .supplement-grid,
+  .spell-level-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ability-card {
+    grid-template-columns: minmax(0, 1fr) 4rem;
+  }
+
+  .ability-card__modifier {
+    width: 3.5rem;
+  }
+
+  .combat-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-tile--armor {
+    grid-column: 1 / -1;
+  }
+
+  .attack-table__head {
+    display: none;
+  }
+
+  .attack-row {
+    grid-template-columns: 1fr 0.65fr;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .attack-row label:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .spell-card__header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .slot-fields,
+  .spell-card__header .badge {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  .slot-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer {
+    display: grid;
+    gap: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 9pt;
+  }
+
+  .forest-scene,
+  .site-header,
+  .page-tabs,
+  .site-footer,
+  .header-actions {
+    display: none !important;
+  }
+
+  .app-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .character-hero {
+    min-height: auto;
+    margin: 0 0 0.4in;
+    padding: 0.2in;
+    border: 2px solid #000;
+    background: #fff;
+    box-shadow: none;
+    color: #000;
+  }
+
+  .character-hero h1,
+  .character-summary,
+  .character-hero .eyebrow {
+    color: #000;
+  }
+
+  .character-sigil {
+    width: 0.7in;
+    border-color: #000;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .character-sigil svg {
+    stroke: #000;
+  }
+
+  .sheet-page {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .sheet-panel,
+  .spell-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  input,
+  select,
+  textarea {
+    border-color: #999;
+    background: #fff;
+    color: #000;
+  }
+}
